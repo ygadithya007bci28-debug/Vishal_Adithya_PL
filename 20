@@ -1,0 +1,15 @@
+x_dim = int(input())
+y_dim = int(input())
+z_dim = int(input())
+n_val = int(input())
+x_range = range(x_dim + 1)
+y_range = range(y_dim + 1)
+z_range = range(z_dim + 1)
+
+final_list = [
+    [i, j, k]
+    for i in x_range
+    for j in y_range
+    for k in z_range
+    if (i + j + k) != n_val
+]
