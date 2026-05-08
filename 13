@@ -1,0 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations_with_replacement
+
+# Read input
+line = input().split()
+s = sorted(line[0]) # Sort string for lexicographical order
+n = int(line[1])
+
+# Generate and print combinations
+for c in combinations_with_replacement(s, n):
+    print("".join(c))
