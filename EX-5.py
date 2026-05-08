@@ -1,0 +1,6 @@
+p=int(input("enter the principle amount:"))
+n=int(input("enter the no of years:"))
+r=float(input("enter the rate of intrest:"))
+A=(p*n*r)
+sim_int=(A/100)
+print("Simple intrest=",sim_int)

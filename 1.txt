@@ -1,0 +1,14 @@
+import re
+
+# Range: 100000 to 999999 inclusive
+regex_integer_in_range = r"^[1-9]\d{5}$"
+
+# Finds digit 'x' followed by another digit, then 'x' again
+regex_alternating_repetitive_digit_pair = r"(\d)(?=\d\1)"
+
+# Validation logic
+P = input()
+print(bool(re.match(regex_integer_in_range, P)) and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
+
+regex_alternating_repetitive_digit_pair = r"_________"	# Do not delete 'r'.
+

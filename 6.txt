@@ -1,0 +1,30 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def handle_comment(self, data):
+        # Distinguish between single-line and multi-line comments
+        if '\n' in data:
+            print(">>> Multi-line Comment")
+        else:
+            print(">>> Single-line Comment")
+        print(data)
+
+    def handle_data(self, data):
+        # Do not print if data is just a newline character
+        if data != '\n':
+            print(">>> Data")
+            print(data)
+
+# Read the number of lines
+n = int(input())
+html_code = ""
+
+# Collect all lines of HTML into one string
+for _ in range(n):
+    html_code += input().rstrip() + '\n'
+
+# Initialize and run the parser
+parser = MyHTMLParser()
+parser.feed(html_code)
+parser.close()

@@ -1,0 +1,12 @@
+def unique(s):
+    W=s.lower().split()
+    UW = set(W)
+    return len(UW)
+s1 = input(str("enter a sentence:"))
+c1 = unique(s1)
+print(f"Sentence 1: '{s1}'")
+print(f"Number of unique words: {c1}")
+s2 = input(str("enter a sentence:"))
+c2 = unique(s2)
+print(f"Sentence 2: '{s2}'")
+print(f"Number of unique words: {c2}")

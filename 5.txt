@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from html.parser import HTMLParser
+
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        # Print the tag name
+        print(tag)
+        # attrs is a list of tuples: (attribute, value)
+        for attr in attrs:
+            # Format: -> attribute > value
+            print(f"-> {attr[0]} > {attr[1]}")
+
+    # Optionally override handle_startendtag for self-closing tags
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+
+# Read the number of lines
+try:
+    n = int(input())
+    # Join all lines into a single string to handle multi-line tags/comments
+    html_code = "\n".join([input() for _ in range(n)])
+    
+    # Initialize and feed the parser
+    parser = MyHTMLParser()
+    parser.feed(html_code)
+except EOFError:
+    pass
