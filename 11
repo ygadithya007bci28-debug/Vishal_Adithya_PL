@@ -1,0 +1,22 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations
+
+# Input handling
+n = int(input())
+l = input().split()
+k = int(input())
+
+# Generate all possible combinations of indices (length k)
+# combinations(l, k) handles unordered tuples automatically
+all_combinations = list(combinations(range(1, n + 1), k))
+
+# Find combinations that contain the character 'a'
+# The problem mentions 'a' as the target in the explanation
+count_with_a = 0
+for combo in combinations(l, k):
+    if 'a' in combo:
+        count_with_a += 1
+
+# Calculate and format probability
+probability = count_with_a / len(all_combinations)
+print(f"{probability:.4f}")
