@@ -1,0 +1,21 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import product
+
+# Read K and M
+k, m = map(int, input().split())
+
+# Read K lists
+lists = []
+for _ in range(k):
+    # Skip the first integer as it's the number of elements
+    lists.append(list(map(int, input().split()))[1:])
+
+# Find the maximum value
+max_val = 0
+for combination in product(*lists):
+    # Calculate sum of squares modulo m
+    current_val = sum(x**2 for x in combination) % m
+    if current_val > max_val:
+        max_val = current_val
+
+print(max_val)
