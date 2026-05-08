@@ -1,0 +1,12 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import groupby
+
+# Read the input string
+S = input().strip()
+
+# Group consecutive identical characters
+# k is the character (key), and g is an iterator of the consecutive occurrences
+for k, g in groupby(S):
+    # len(list(g)) gives the number of consecutive occurrences (X)
+    # k is the character itself (c)
+    print("(%d, %d)" % (len(list(g)), int(k)), end=' ')
